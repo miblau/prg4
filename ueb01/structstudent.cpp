@@ -39,9 +39,9 @@ void ausgeben(const structStudent& student){
  */
 bool ausDateiEinlesen(istream& eingabestrom, structStudent& student){
 	
-	char nameCharArray[MAX_GROESSE];
-	char vornameCharArray[MAX_GROESSE];
-	char geburtsdatumCharArray[MAX_GROESSE];
+	char nameCharArray[MAX_GROESSE]{};
+	char vornameCharArray[MAX_GROESSE]{};
+	char geburtsdatumCharArray[MAX_GROESSE]{};
 
 	eingabestrom >> student.matrikelNr;
 	eingabestrom.get();
@@ -68,7 +68,19 @@ bool ausDateiEinlesen(istream& eingabestrom, structStudent& student){
  * @param stud2
  */
 bool vergleicheName(const structStudent& stud1,const structStudent& stud2){
-	return stud1.name < stud2.name;
+	if(stud1.name < stud2.name){
+		return true;
+
+	}else if(stud1.name == stud2.name){
+
+		if (stud1.vorname < stud2.vorname){
+
+			return true;
+		}
+	}
+
+
+	return false;
 }
 
 /**

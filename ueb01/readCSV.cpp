@@ -44,7 +44,6 @@ int main (int argc, char** argv){
 
 	for(int zeile = 1; eingabestrom.eof() == false; zeile++){
 		structStudent tmpStudent;
-
 		bool einlesenOK = ausDateiEinlesen(eingabestrom, tmpStudent);
 
 		if(einlesenOK){
@@ -57,8 +56,8 @@ int main (int argc, char** argv){
 			eingabestrom.ignore(MAX_GROESSE, '\n');
 		}
 	}
+
 	cout << "--Sortierung nach Name, Vorname:--" << endl;
-	sort(studentVector.begin(), studentVector.end(), vergleicheVorname);
 	sort(studentVector.begin(), studentVector.end(), vergleicheName);
 	vectorAusgeben(studentVector);
 
