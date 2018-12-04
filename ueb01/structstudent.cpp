@@ -74,12 +74,9 @@ bool vergleicheName(const structStudent& stud1,const structStudent& stud2){
 	}else if(stud1.name == stud2.name){
 
 		if (stud1.vorname < stud2.vorname){
-
 			return true;
 		}
 	}
-
-
 	return false;
 }
 
