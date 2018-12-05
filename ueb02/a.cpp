@@ -17,7 +17,7 @@ using namespace std;
 /**Funktions-Prototypen**/
 int zaehleWoerter(char*);
 bool istLeerzeichen(char);
-int ueberspringeRestLeerzeichen(char*, int);
+//int ueberspringeRestLeerzeichen(char*, int);
 
 
 
@@ -28,23 +28,31 @@ int ueberspringeRestLeerzeichen(char*, int);
  * @return 0
  */
 int main (int argc, char** argv){
-	char* wort ="hallo Guten   Tag";
+	char* wort ="hallo Guten   Tag    wie gehts		tabtab huhuhu \n";
 	int anzahl = zaehleWoerter(wort);
 
-	cout << anzahl << endl;
+	cout << "Anzahl Woerter: " << anzahl << endl;
 
 	return 0;
 }
 
+
+
 int zaehleWoerter(char* charString){
-	int anzahlWoerter{1};
+	int anzahlWoerter{0};
+	char pre = *charString;
+	if(!istLeerzeichen(pre)){
+		anzahlWoerter++;
+	}
 
 	for(int i = 0; *charString != '\0'; i++ ){
 		if(istLeerzeichen(*(charString))){
+			//tue nichts, um Leerzeichen zu ueberspringen
+		}else if(istLeerzeichen(pre)){
 			anzahlWoerter++;
-			ueberspringeRestLeerzeichen(charString);
 		}
-		cout << "Anzahl Zeichen: " << i << endl;
+		pre = *charString;
+		charString++;
 	}
 	return anzahlWoerter;
 }
@@ -58,8 +66,4 @@ bool istLeerzeichen(char zeichen){
 	return ((zeichen == linefeed) || (zeichen == blank) || (zeichen == tab));
 }
 
-
-void ueberspringeRestLeerzeichen(char* charString){
-
-}
 
